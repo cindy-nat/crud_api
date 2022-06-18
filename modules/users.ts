@@ -29,7 +29,7 @@ export const updateUser = (id, data) =>
   });
 
 export const deleteUser = (id) =>
-    new Promise<void>((resolve) => {
-        users = users.filter(user => user.id !== id)
-        resolve();
-    });
+  new Promise<void>((resolve) => {
+    users = users.filter((user) => user.id !== id);
+    resolve();
+  });

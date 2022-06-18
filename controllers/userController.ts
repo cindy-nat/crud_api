@@ -114,7 +114,7 @@ export const updateUser = async (req, res, id) => {
   }
 };
 
-export const deleteUser = async (req, res, id)  => {
+export const deleteUser = async (req, res, id) => {
   try {
     if (!validate(id)) {
       writeHead(res, RESPONSES_CODES.DATA_NOT_VALID);
@@ -129,11 +129,8 @@ export const deleteUser = async (req, res, id)  => {
         await User.deleteUser(id);
         writeHead(res, RESPONSES_CODES.DATA_DELETED);
       }
-
     }
+  } catch (error) {
+    console.log(error);
   }
-  catch (error) {
-    console.log(error)
-  }
-
-}
+};
