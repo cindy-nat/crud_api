@@ -1,13 +1,7 @@
-import {getUser, getUsers} from '../controllers/userController';
 import {server} from "../../server";
 import request from 'supertest';
-import {UserData, UserType} from "../type";
 
 describe('Whole success API story', () => {
-
-  const expectedStatusCode = 200;
-  const expectedResponse: [] = []
-
   let createdId: string
 
   const newUser = {
@@ -17,6 +11,10 @@ describe('Whole success API story', () => {
   }
 
   test('200 - get all users', async () => {
+
+    const expectedStatusCode = 200;
+    const expectedResponse: [] = []
+
     const response = await request(server)
         .get('/api/users')
     expect(response.status).toEqual(expectedStatusCode);
