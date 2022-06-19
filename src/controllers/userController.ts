@@ -128,6 +128,7 @@ export const deleteUser = async (req: IncomingMessage, res: ServerResponse, id: 
       } else {
         await User.deleteUser(id);
         writeHead(res, RESPONSES_CODES.DATA_DELETED);
+        res.end()
       }
     }
   } catch (error) {
