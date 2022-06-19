@@ -1,6 +1,6 @@
 import cluster from "cluster";
 import { cpus } from "os";
-import { server } from "./server.js";
+import { server } from "./server";
 import * as dotenv from "dotenv";
 
 dotenv.config()
@@ -15,7 +15,7 @@ if(cluster.isMaster) {
 }
 else {
   server.listen(PORT, () => {
-    console.log(`Worker ${cluster.worker.id} launched on port: ${PORT}`);
+    console.log(`Worker ${cluster?.worker?.id} launched on port: ${PORT}`);
   });
 }
 

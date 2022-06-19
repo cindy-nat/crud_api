@@ -1,19 +1,19 @@
 import {createServer} from "http";
-import {addUser, deleteUser, getUser, getUsers, updateUser} from "./controllers/userController.js";
-import {RESPONSES_CODES, writeHead} from "./helpers/index.js";
+import {addUser, deleteUser, getUser, getUsers, updateUser} from "./src/controllers/userController";
+import {RESPONSES_CODES, writeHead} from "./src/helpers";
 
 export const server = createServer((req, res) => {
     if (req.url === "/api/users" && req.method === "GET") {
         getUsers(req, res);
-    } else if (req.url.startsWith("/api/users/") && req.method === "GET") {
+    } else if (req?.url?.startsWith("/api/users/") && req.method === "GET") {
         const id = req.url.split("/")[3];
         getUser(req, res, id);
     } else if (req.url === "/api/users" && req.method === "POST") {
         addUser(req, res);
-    } else if (req.url.startsWith("/api/users/") && req.method === "PUT") {
+    } else if (req?.url?.startsWith("/api/users/") && req.method === "PUT") {
         const id = req.url.split("/")[3];
         updateUser(req, res, id);
-    } else if (req.url.startsWith("/api/users/") && req.method === "DELETE") {
+    } else if (req?.url?.startsWith("/api/users/") && req.method === "DELETE") {
         const id = req.url.split("/")[3];
         deleteUser(req, res, id);
     } else {
