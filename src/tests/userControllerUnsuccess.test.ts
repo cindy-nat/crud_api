@@ -30,15 +30,6 @@ describe('Whole unsuccessful API story', () => {
         expect(response.status).toEqual(expectedStatusCode);
     });
 
-    test('400 - did not get user with invalid id', async () => {
-
-        const expectedStatusCode = 400;
-
-        const response = await request(server)
-            .get(`/api/users/123`)
-        expect(response.status).toEqual(expectedStatusCode);
-    });
-
     test('404 - unsuccessful update of user not in data base', async () => {
 
         const expectedStatusCode = 404;
