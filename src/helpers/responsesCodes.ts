@@ -1,0 +1,8 @@
+export const RESPONSES_CODES: Record<string, number> = {
+  GET_SUCCESS: 200,
+  DATA_NOT_VALID: 400,
+  DATA_NOT_FOUND: 404,
+  DATA_CREATED: 201,
+  DATA_DELETED: 204,
+  SERVER_ERROR: 500,
+};
